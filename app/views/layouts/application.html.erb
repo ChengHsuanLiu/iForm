@@ -7,9 +7,41 @@
   <%= csrf_meta_tags %>
 </head>
 <body>
-<%= link_to 'Log Out', destroy_user_session_path , method: :delete %>
+<div class="navbar navbar-default">
+    <div class="navbar-header">
+        <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-responsive-collapse">
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+        </button>
+        <a class="navbar-brand" href="<%= root_path %>">iForm</a>
+    </div>
+    <div class="navbar-collapse collapse navbar-responsive-collapse">
+        <ul class="nav navbar-nav">
+			<li><a href="<%= forms_path %>">View Forms</a></li>
+			<li><a href="<%= new_form_path %>">New Forms</a></li>
+        </ul>
+        <ul class="nav navbar-nav navbar-right">
+            <% if current_user.blank? %>
+            	<li><%= link_to '註冊', new_user_registration_path %></li>
+            	<li><%= link_to '登入', new_user_session_path %></li>
+			<% else %>
+				<li><%= link_to '登出', destroy_user_session_path , method: :delete %></li>
+	        <% end %>
+        </ul>
+    </div>
+</div>
+<div class="spacer-60">
+</div>
 
 <%= yield %>
-
+<script src="//code.jquery.com/jquery-1.10.2.min.js"></script>
+<%= javascript_include_tag 'bootstrap-material-design/dist/js/ripples.js' %>
+<%= javascript_include_tag 'bootstrap-material-design/dist/js/material.js' %>
+<script>
+    $(document).ready(function() {
+        $.material.init();
+    });
+</script>
 </body>
 </html>

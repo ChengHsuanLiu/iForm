@@ -11,12 +11,13 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150316085238) do
+ActiveRecord::Schema.define(version: 20150316124710) do
 
   create_table "columns", force: true do |t|
     t.string   "name"
     t.string   "value"
     t.string   "group"
+    t.string   "type"
     t.integer  "form_id"
     t.datetime "created_at"
     t.datetime "updated_at"
@@ -24,7 +25,18 @@ ActiveRecord::Schema.define(version: 20150316085238) do
 
   create_table "forms", force: true do |t|
     t.string   "name"
+    t.text     "description"
+    t.string   "status",      default: "draft"
+    t.boolean  "can_edit",    default: false
     t.integer  "user_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "submissions", force: true do |t|
+    t.text     "data"
+    t.integer  "user_id"
+    t.integer  "form_id"
     t.datetime "created_at"
     t.datetime "updated_at"
   end

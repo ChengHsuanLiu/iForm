@@ -1,3 +1,21 @@
+<style type="text/css">
+	a:hover,a:focus{ color: #fff !important; }
+</style>
+<div class="spacer-60"></div>
 <% @forms.each do |form| %>
-  <%= link_to form.name, form_path(form) %>
+	<div class="col-md-4">
+		<div class="panel panel-primary">
+		    <div class="panel-heading">
+		        <h3 class="panel-title">
+	  				<%= link_to form.name, form_path(form) %>
+	  			</h3>
+		    </div>
+		    <div class="panel-body">
+		        器部二它。傳多破這學乎離很民以要臺起望嗎院到個想院到物能時時式單的動大女難，於大聽人我民就家定幾許海能會公園：管阿立推印力外……牛率員入自應黃因！事西爭業為主事知內，公與人創量子任面車是大手上面元票，用個部，正始等平望全車……才頭一隊，一傳日導指樂部共縣不氣山小年要開交早，白想們玩然成。北大葉：來勢色前數，運聲媽起工；地之的上，出告且得聽中。起好票班，還簡業。我業遊議決那一兒公活就已能假響統的家的是還！區何然用學教寫，願女考習解怎出以點性環前。
+		    </div>
+		    <div class="panel-footer">
+		    	<%= link_to 'View', form_path(form), class:'btn btn-primary btn-xs' %>
+		    </div>
+		</div>
+	</div>
 <% end %>

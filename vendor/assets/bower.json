@@ -2,6 +2,7 @@
   "name": "dsl-generated dependencies",
   "dependencies": {
     "normalize.css": "latest",
+    "bootstrap": "latest",
     "bootstrap-material-design": "latest"
   }
 }
