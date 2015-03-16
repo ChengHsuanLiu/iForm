@@ -22,7 +22,7 @@
 			<li><a href="<%= new_form_path %>">New Forms</a></li>
         </ul>
         <ul class="nav navbar-nav navbar-right">
-            <% if current_user.blank? %>
+            <% if current_admin.blank?%>
             	<li><%= link_to '註冊', new_user_registration_path %></li>
             	<li><%= link_to '登入', new_user_session_path %></li>
 			<% else %>

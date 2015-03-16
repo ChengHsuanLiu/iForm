@@ -1,7 +1,7 @@
 class FormsController < ApplicationController
-  before_action :authenticate_user!
+  before_action :authenticate_admin!
   def index
-    @forms = current_user.forms
+    @forms = Form.all
   end
 
   def show
@@ -13,7 +13,7 @@ class FormsController < ApplicationController
   end
 
   def create
-    @form = current_user.forms.build(form_params)
+    @form = Form.new(form_params)
     if @form.save
       redirect_to forms_path
     else
